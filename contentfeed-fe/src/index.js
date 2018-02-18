@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import {
-  Row, Col, Card, CardBlock, CardTitle, CardText
+  Row, Col, Card, CardBody, CardTitle, CardText, CardImg
 } from 'reactstrap';
 import  './index.css';
 
@@ -10,20 +10,22 @@ class ContentItem extends React.Component {
   render() {
     return (
       <Row className="ContentItem">
+        <Col xs="2"> </Col>
         <Col xs="6">
           <Card>
-            <CardBlock>
+            <CardImg top width="318px" height="180px" src={this.props.item.image} />
+            <CardBody>
               <CardTitle>
                 {this.props.item.title}
               </CardTitle>
               <CardText>
                 {this.props.item.description}
               </CardText>
-            </CardBlock>
+            </CardBody>
           </Card>
         </Col>
       </Row>
-    )
+    );
   }
 }
 
