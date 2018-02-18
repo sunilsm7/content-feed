@@ -1,5 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.css';
+import {
+  Row, Col, Card, CardBlock, CardTitle, CardText
+} from 'reactstrap';
+import  './index.css';
+
+class ContentItem extends React.Component {
+  render() {
+    return (
+      <Row className="ContentItem">
+        <Col xs="6">
+          <Card>
+            <CardBlock>
+              <CardTitle>
+                {this.props.item.title}
+              </CardTitle>
+              <CardText>
+                {this.props.item.description}
+              </CardText>
+            </CardBlock>
+          </Card>
+        </Col>
+      </Row>
+    )
+  }
+}
+
 
 class ContentFeed extends React.Component{
   constructor(props){
@@ -26,10 +53,7 @@ class ContentFeed extends React.Component{
         <ul>
           {this.state.items.map((item, index) =>{
             return (
-              <div key={item.id.toString()}>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </div>
+              <ContentItem item={item} key={item.id} />
             )
           })}
         </ul>
